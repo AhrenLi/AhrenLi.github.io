@@ -21,7 +21,7 @@ document.querySelector('#openCamera').addEventListener('click', function () {
             // webAR.openCamera(JSON.parse(videoSelect.value))
             webAR.openCamera({ audio: false, video: { facingMode: { exact: 'environment' } } })
                 .then(msg => {
-                    console.info(msg);
+                    console.info("打开相机：" + msg);
                 }).catch(err => {
                     console.info(err);
                 });
@@ -34,7 +34,7 @@ document.querySelector('#openCamera').addEventListener('click', function () {
 // 开启识别
 document.querySelector('#start').addEventListener('click', () => {
     webAR.startRecognize((msg) => {
-        console.info(msg);
+        console.info("开启试别：" + msg);
         // 可以将 setting 作为meta上传到EasyAR的云识别，使用方法如下
         // const setting = JSON.parse(window.atob(msg.target.meta));
         const setting = {
