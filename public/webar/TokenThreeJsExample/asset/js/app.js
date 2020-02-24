@@ -1,5 +1,5 @@
 //             别间隔时间(毫秒), 识别服务地址, 认证token
-const webAR = new WebAR(1000, 'https://cn1-crs.easyar.com:8443/search', 'yq9Azk2GkMpQFvNLRHXYJ6GReR6do5CichrRqfRCt4GqgWv8UKrEOLer7LfxbwnPoujaNCv3f7ron3GqmbDIbQ==');
+const webAR = new WebAR(1000, 'https://cn1-crs.easyar.com:8443/search', 'MfxGvR9nDN4WM+m7ozgbGROvJEpk3AbagbxQs7U+3S1razLnctMEqkUM8XbUmNdnkHaAPMGcVYWCV8o8o8JxtQ==');
 // Threejs简单使用类
 const threeHelper = new ThreeHelper();
 // 列出并打开设备上的摄像头
@@ -7,27 +7,29 @@ document.querySelector('#openCamera').addEventListener('click', function () {
     const videoSelect = document.querySelector('#videoDevice');
     webAR.listCamera(videoSelect)
         .then(msg => {
-        // 隐藏"打开摄像头"按钮
-        this.style.display = 'none';
-        videoSelect.style.display = 'inline-block';
-        document.querySelector('#start').style.display = 'inline-block';
-        document.querySelector('#stop').style.display = 'inline-block';
-        videoSelect.onchange = () => {
-            webAR.openCamera(JSON.parse(videoSelect.value));
-        };
-        // 打开摄像头
-        // 打开后置摄像头参数： {audio: false, video: {facingMode: {exact: 'environment'}}}
-        webAR.openCamera(JSON.parse(videoSelect.value))
-            .then(msg => {
-            console.info(msg);
-        }).catch(err => {
+            // 隐藏"打开摄像头"按钮
+            this.style.display = 'none';
+            videoSelect.style.display = 'inline-block';
+            document.querySelector('#start').style.display = 'inline-block';
+            document.querySelector('#stop').style.display = 'inline-block';
+            videoSelect.onchange = () => {
+                // JSON.parse(videoSelect.value)
+                webAR.openCamera({ audio: false, video: { facingMode: { exact: 'environment' } } });
+            };
+            // 打开摄像头
+            // 打开后置摄像头参数： {audio: false, video: {facingMode: {exact: 'environment'}}}
+            // webAR.openCamera(JSON.parse(videoSelect.value))
+            webAR.openCamera({ audio: false, video: { facingMode: { exact: 'environment' } } })
+                .then(msg => {
+                    console.info(msg);
+                }).catch(err => {
+                    console.info(err);
+                });
+        })
+        .catch(err => {
+            // 没有找到摄像头
             console.info(err);
         });
-    })
-        .catch(err => {
-        // 没有找到摄像头
-        console.info(err);
-    });
 });
 // 开启识别
 document.querySelector('#start').addEventListener('click', () => {
