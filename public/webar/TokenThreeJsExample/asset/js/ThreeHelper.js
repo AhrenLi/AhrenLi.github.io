@@ -31,11 +31,14 @@ class ThreeHelper {
         });
     }
     loadObject(setting) {
+        console.warn("开始加载模型");
         const loader = new THREE.FBXLoader();
         loader.load(setting.model, (object) => {
             object.scale.setScalar(setting.scale);
             object.position.set(setting.position[0], setting.position[1], setting.position[1]);
             this.scene.add(object);
+            console.warn("已经加载模型");
+
             if (object.animations.length > 0) {
                 object.mixer = new THREE.AnimationMixer(object);
                 this.mixers.push(object.mixer);

@@ -1,5 +1,5 @@
 //             别间隔时间(毫秒), 识别服务地址, 认证token
-const webAR = new WebAR(1000, 'https://cn1-crs.easyar.com:8443/search', 'MfxGvR9nDN4WM+m7ozgbGROvJEpk3AbagbxQs7U+3S1razLnctMEqkUM8XbUmNdnkHaAPMGcVYWCV8o8o8JxtQ==');
+const webAR = new WebAR(1000, 'https://cn1-crs.easyar.com:8443/search', '1KNfGkxKqfdmVCUiQdGmypscy9vcaRDvA/PgFcksi3ujc4qBCQJ71blNtMmOdJ3WTf2YRJRq0htABUxmyxLtSg==');
 // Threejs简单使用类
 const threeHelper = new ThreeHelper();
 // 列出并打开设备上的摄像头
