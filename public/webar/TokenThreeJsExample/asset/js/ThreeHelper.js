@@ -33,7 +33,7 @@ class ThreeHelper {
     loadObject(setting) {
         console.warn("开始加载模型");
         const loader = new THREE.FBXLoader();
-        console.warn(1111111);
+        console.warn(setting.model);
         loader.load(setting.model, (object) => {
             console.warn(2222222);
             object.scale.setScalar(setting.scale);
