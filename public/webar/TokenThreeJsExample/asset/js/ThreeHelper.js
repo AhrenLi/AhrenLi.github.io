@@ -44,6 +44,7 @@ class ThreeHelper {
                 this.mixers.push(object.mixer);
                 object.mixer.clipAction(object.animations[0]).play();
             }
+            console.log("显示模型");
         }, this.onProgress, this.onError);
     }
     onProgress(progress) { 

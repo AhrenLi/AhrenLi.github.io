@@ -38,7 +38,7 @@ document.querySelector('#start').addEventListener('click', () => {
         // 可以将 setting 作为meta上传到EasyAR的云识别，使用方法如下
         // const setting = JSON.parse(window.atob(msg.target.meta));
         const setting = {
-            model: 'asset/model/nv_dj0101.fbx',
+            model: 'asset/model/nv_zl01.fbx',
             scale: 0.02,
             position: [0, 0, 0]
         };
