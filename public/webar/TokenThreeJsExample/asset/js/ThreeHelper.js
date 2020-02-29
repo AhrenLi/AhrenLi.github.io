@@ -46,7 +46,13 @@ class ThreeHelper {
                 this.mixers.push(object.mixer);
                 object.mixer.clipAction(object.animations[0]).play();
             }
-        });
+        }, onProgress, onError);
+    }
+    onProgress(progress) {
+        console.log(progress);
+    }
+    onError(err) {
+        console.log(err);
     }
 }
 //# sourceMappingURL=ThreeHelper.js.map
