@@ -39,8 +39,6 @@ class ThreeHelper {
             object.scale.setScalar(setting.scale);
             object.position.set(setting.position[0], setting.position[1], setting.position[1]);
             this.scene.add(object);
-            console.warn("已经加载模型");
-
             if (object.animations.length > 0) {
                 object.mixer = new THREE.AnimationMixer(object);
                 this.mixers.push(object.mixer);
@@ -48,8 +46,8 @@ class ThreeHelper {
             }
         }, this.onProgress, this.onError);
     }
-    onProgress(progress) {
-        console.log(progress);
+    onProgress(progress) { 
+       console.log(progress);
     }
     onError(err) {
         console.log(err);
